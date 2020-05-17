@@ -5,6 +5,8 @@
 >Framework JS: Vuejs
 >Framework CSS: bulma
 >Cómo instalar las dependencias y correr el proyecto? = solo se debe hacer un npm i y luego npm run dev
+>Repositorio: https://github.com/RafaelEspinoza1993/mutiplicatalentcolores
+>Deploy en Netlify: https://5ec0d3c7706bab00069d4d09--focused-bose-22352d.netlify.app/
 
 ## Build Setup
 
