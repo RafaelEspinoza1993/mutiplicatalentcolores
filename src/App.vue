@@ -1,10 +1,15 @@
 <template lang="pug">
   #app.section
     b-loading(:is-full-page='true' :active.sync='loading' :can-cancel='false')
+    b-modal(:active.sync='isModalActive')
+      .boxesdetail
+        span.is-size-5.year.has-text-weight-medium {{dataselected.year}}
+        span.is-size-5.name.has-text-weight-medium ¡Copiado!
+        span.is-size-5.pantone.has-text-weight-medium {{dataselected.pantone_value}}
     .top
       h1.title.has-text-weight-bold Colores
     .center
-      .boxes(v-for="(value, index) in data" :key="index" v-clipboard:copy="value.color" @click="clickcopy(value.color)" )
+      .boxes(v-for="(value, index) in data" :key="index" v-clipboard:copy="value.color" @click="clickcopy(value)" )
         span.is-size-5.year.has-text-weight-medium {{value.year}}
         span.is-size-5.name.has-text-weight-medium {{value.name}}
         span.is-size-5.color.has-text-weight-semibold {{value.color}}
@@ -32,7 +37,9 @@ export default {
       per_page: 6,
       total: 0,
       total_pages: 0,
-      loading: false
+      loading: false,
+      isModalActive:false,
+      dataselected:[]
     };
   },
   methods: {
@@ -73,8 +80,10 @@ export default {
       this.page = page - 1;
       this.loadAsyncData();
     },
-    clickcopy(color) {
-      alert("Color " + color + " copy!");
+    clickcopy(row) {
+      this.dataselected = []
+      this.dataselected = row;
+      this.isModalActive = true;
     }
   },
   mounted() {
@@ -84,22 +93,32 @@ export default {
 </script>
 
 <style lang="scss">
+$grey: #d4d4d4;
 #app {
   font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  max-width: 1920px;
+  max-width: 1030px;
+  margin:0 auto;
   .top,
   .back,
-  .boxes {
+  .boxes,
+  .boxesdetail {
     border: 1px solid black;
     border-radius: 10px;
     text-align: center;
     h1 {
       margin: 10px;
     }
+  }
+  .boxesdetail{
+    background: $grey;
+    width: 310px;
+    height: 180px;
+    margin: 0 auto;
+    padding: 0 10px;
   }
   .arrowleft,
   .arrowright,
@@ -111,7 +130,8 @@ export default {
     justify-content: space-between;
   }
   .boxes,
-  .center {
+  .center,
+  .boxesdetail {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
@@ -121,7 +141,7 @@ export default {
   }
   .boxes {
     padding: 0 10px;
-    background: #d4d4d4;
+    background: $grey;
     grid-template-rows: repeat(6, 1fr);
     cursor: pointer;
     text-decoration: none;
