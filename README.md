@@ -1,6 +1,10 @@
 # multitalentcolores
 
-> A Vue.js project
+>Proyecto que muestra  paletas de colores por box y puede ser copiado el codigo #hex al solor hacer click por cada box
+
+>Framework: Vuejs
+
+>Cómo instalar las dependencias y correr el proyecto? = solo se debe hacer un npm i y luego npm run dev
 
 ## Build Setup
 
@@ -14,5 +18,3 @@ npm run dev
 # build for production with minification
 npm run build
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).

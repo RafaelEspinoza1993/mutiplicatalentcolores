@@ -1,21 +1,22 @@
 <template lang="pug">
   #app.section
+    b-loading(:is-full-page='true' :active.sync='loading' :can-cancel='false')
     .top
-      h1.title Colores
+      h1.title.has-text-weight-bold Colores
     .center
       .boxes(v-for="(value, index) in data" :key="index" v-clipboard:copy="value.color" @click="clickcopy(value.color)" )
-        span.is-size-5.year {{value.year}}
-        span.is-size-5.name {{value.name}}
-        span.is-size-5.color {{value.color}}
-        span.is-size-5.pantone {{value.pantone_value}}
-    .back
+        span.is-size-5.year.has-text-weight-medium {{value.year}}
+        span.is-size-5.name.has-text-weight-medium {{value.name}}
+        span.is-size-5.color.has-text-weight-semibold {{value.color}}
+        span.is-size-5.pantone.has-text-weight-medium {{value.pantone_value}}
+    footer.back
       a.arrowleft(@click="afterpage(page)" v-if="page != 1")
         span.icon
           i.fas.fa-arrow-left
-        .is-size-5 Anterior
+        .is-size-5.has-text-weight-medium Anterior
       div(v-else)
       a.arrowright(@click="beforepage(page)" v-if="total_pages != page")
-        .is-size-5 Siguiente
+        .is-size-5.has-text-weight-medium Siguiente
         span.icon
           i.fas.fa-arrow-right
 </template>
