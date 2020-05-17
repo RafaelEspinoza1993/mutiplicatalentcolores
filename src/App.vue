@@ -38,8 +38,8 @@ export default {
       total: 0,
       total_pages: 0,
       loading: false,
-      isModalActive:false,
-      dataselected:[]
+      isModalActive: false,
+      dataselected: []
     };
   },
   methods: {
@@ -81,7 +81,7 @@ export default {
       this.loadAsyncData();
     },
     clickcopy(row) {
-      this.dataselected = []
+      this.dataselected = [];
       this.dataselected = row;
       this.isModalActive = true;
     }
@@ -101,7 +101,7 @@ $grey: #d4d4d4;
   text-align: center;
   color: #2c3e50;
   max-width: 1030px;
-  margin:0 auto;
+  margin: 0 auto;
   .top,
   .back,
   .boxes,
@@ -113,7 +113,7 @@ $grey: #d4d4d4;
       margin: 10px;
     }
   }
-  .boxesdetail{
+  .boxesdetail {
     background: $grey;
     width: 310px;
     height: 180px;
@@ -130,14 +130,15 @@ $grey: #d4d4d4;
     justify-content: space-between;
   }
   .boxes,
-  .center,
   .boxesdetail {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
   .center {
-    margin: 10px;
-    gap: 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
   }
   .boxes {
     padding: 0 10px;
@@ -145,6 +146,8 @@ $grey: #d4d4d4;
     grid-template-rows: repeat(6, 1fr);
     cursor: pointer;
     text-decoration: none;
+    width: 315px;
+    margin: 5px;
   }
   .boxes:hover {
     background: white;
@@ -186,16 +189,6 @@ $grey: #d4d4d4;
 
   a {
     color: #252525;
-  }
-  @media only screen and (max-width: 1024px) {
-    .center {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media only screen and (max-width: 769px) {
-    .center {
-      grid-template-columns: 1fr;
-    }
   }
 }
 </style>

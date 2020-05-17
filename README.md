@@ -2,8 +2,8 @@
 
 >Proyecto que muestra  paletas de colores por box y puede ser copiado el codigo #hex al solor hacer click por cada box
 
->Framework: Vuejs
-
+>Framework JS: Vuejs
+>Framework CSS: bulma
 >Cómo instalar las dependencias y correr el proyecto? = solo se debe hacer un npm i y luego npm run dev
 
 ## Build Setup
